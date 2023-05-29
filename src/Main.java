@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Main {
     public static void main(String[] args) {
 
@@ -16,8 +15,6 @@ public class Main {
         };
 
         int playerMove;
-        int cpuMove;
-        int howManyShotsLeft;
         boolean win = true;
 
         List<Players> players = new ArrayList<>();
@@ -66,8 +63,6 @@ public class Main {
             for (int i = 0; i < ticTacIndex.length; i++) {
                 System.out.print(ticTacIndex [i] + " : ");
             }
-
-
 
          }
         while (win);
