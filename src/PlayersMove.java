@@ -31,7 +31,7 @@ public class PlayersMove {
         return playerMove;
     }
 
-    public static String[][] drawTicTacHowToPlay(int[] ticTacIndex, String[][] ticTacHowToPlay) {
+    public static String[][] drawTicTacHowToPlay(int[] ticTacIndex, String[][] ticTacTable) {
         int row;
         int column;
         for (int x = 0; x < ticTacIndex.length; x++) {
@@ -39,80 +39,80 @@ public class PlayersMove {
                 case 0:
                     row = 0;
                     column = 0;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 1:
                     row = 0;
                     column = 2;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 2:
                     row = 0;
                     column = 4;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 3:
                     row = 2;
                     column = 0;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 4:
                     row = 2;
                     column = 2;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 5:
                     row = 2;
                     column = 4;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 6:
                     row = 4;
                     column = 0;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 7:
                     row = 4;
                     column = 2;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
 
                 case 8:
                     row = 4;
                     column = 4;
-                    convertIndexToBoard(ticTacIndex, ticTacHowToPlay, x, row, column);
+                    convertIndexToBoard(ticTacIndex, ticTacTable, x, row, column);
                     break;
             }
 
         }
-        for (int x = 0; x < ticTacHowToPlay.length; x++) {
-            for (int y = 0; y < ticTacHowToPlay[x].length; y++) {
-                System.out.print(ticTacHowToPlay[x][y]);
+        for (int x = 0; x < ticTacTable.length; x++) {
+            for (int y = 0; y < ticTacTable[x].length; y++) {
+                System.out.print(ticTacTable[x][y]);
             }
             System.out.println();
         }
         System.out.println();
         System.out.println("Tic Tac Toe Rulez!");
-        return ticTacHowToPlay;
+        return ticTacTable;
     }
 
-    private static String [] [] convertIndexToBoard(int[] ticTacIndex, String[][] ticTacHowToPlay, int x, int row, int column) {
+    private static String [] [] convertIndexToBoard(int[] ticTacIndex, String[][] ticTacTable, int x, int row, int column) {
         if (ticTacIndex[x] !=0){
             if (ticTacIndex[x] == 1){
-                ticTacHowToPlay[row] [column] = "O";
+                ticTacTable[row] [column] = "O";
             }
             else {
-                ticTacHowToPlay[row] [column] = "X";
+                ticTacTable[row] [column] = "X";
             }
         }
-        return ticTacHowToPlay;
+        return ticTacTable;
     }
 
     public static int [] changeTicTacIndex (int ticTacIndex [], int player, int move ){

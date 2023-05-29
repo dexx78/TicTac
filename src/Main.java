@@ -5,9 +5,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        int [] ticTacIndex = {0, 0, 0, 0, 0, 0, 0, 0, 0, 3};
+        int [] ticTacIndex = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        String [] [] ticTacHowToPlay= {
+        String [] [] ticTacTable= {
                                         {"1", "|", "2", "|", "3" },
                                         {"-", "+", "-", "+", "-" },
                                         {"4", "|", "5", "|", "6" },
@@ -23,11 +23,11 @@ public class Main {
         List<Players> players = new ArrayList<>();
         players.add(Players.ONE);
         players.add(Players.TWO);
-        int index = 0;
+        int whoWin = 0;
         PlayersMove playersMove = new PlayersMove();
         CPU newCPU = new CPU();
 
-        playersMove.drawTicTacHowToPlay(ticTacIndex, ticTacHowToPlay);
+        playersMove.drawTicTacHowToPlay(ticTacIndex, ticTacTable);
 
         System.out.println(players.get(0));
         do{
@@ -37,16 +37,29 @@ public class Main {
             }
 
             playersMove.changeTicTacIndex(ticTacIndex,1,playerMove);
-            ticTacHowToPlay = playersMove.drawTicTacHowToPlay(ticTacIndex,ticTacHowToPlay);
-            playerMove = playersMove.checkForWin(ticTacIndex,1);
+            whoWin = playersMove.checkForWin(ticTacIndex,1);
 
-            if (playerMove == -1) { // -1 for user WIN
+            if (whoWin == -1) { // -1 for user WIN
                 System.out.println("You Win!");
                 break;
             }
 
-            if (playerMove == -2) { // -2 for CPU WIN
+            System.out.println("");
+
+            newCPU.getCPUmove(ticTacIndex, playerMove -1);
+            playersMove.drawTicTacHowToPlay(ticTacIndex,ticTacTable);
+
+            ticTacIndex [9]++;
+
+            whoWin = playersMove.checkForWin(ticTacIndex,2);
+
+            if (whoWin == -2) { // -2 for CPU WIN
                 System.out.println("CPU Win!");
+                break;
+            }
+
+            if (ticTacIndex [9] == 4){
+                System.out.println("Draw!");
                 break;
             }
 
@@ -54,46 +67,12 @@ public class Main {
                 System.out.print(ticTacIndex [i] + " : ");
             }
 
-            System.out.println("");
 
-            CPU.getCPUmove(ticTacIndex);
-            playersMove.drawTicTacHowToPlay(ticTacIndex,ticTacHowToPlay);
-            //newCPU.getCPUmove(ticTacIndex); // ? to ci zagadka...
 
-            //System.out.println("Class Players presents: ");
-            //PlayersMove.drawTicTacHowToPlay(ticTacIndex, ticTacHowToPlay);
-            //check if there is blank shot
-            howManyShotsLeft = 0;
-        }
+         }
         while (win);
 
         System.out.println("The End!!!");
-
-
-
     }
 
-
-
-    private static int getCpuChoose(int[] ticTacIndex) {
-        int cpuMove;
-        int i=0;
-        boolean saver = false;
-        cpuMove = (int)(Math.random() * 9);
-        System.out.println("1 CPU saver: " + i + " : " + saver + " : " + "cpuMove: " + cpuMove);
-        if (ticTacIndex[cpuMove] != 0) {
-//            System.out.println("2 CPU saver: " + i + " : " + saver + " : " + "cpuMove: " + cpuMove);
-            while (saver) {
-                cpuMove = (int)(Math.random() * 9);
-                System.out.println("CPU: " + cpuMove);
-                if (ticTacIndex[cpuMove] == 0) saver = true;
-//                for (int c = 0; c < ticTacIndex.length; c++) if (ticTacIndex [c] == 0) howManyShotsLeft++;
-//                if (howManyShotsLeft == 0) saver = true;
-
-            }
-        }
-        System.out.println("3 CPU saver: " + i + " : " + saver + " : " + "cpuMove: " + cpuMove);
-//        System.out.println("CPU generate: " + cpuMove);
-        return cpuMove;
-        }
 }
