@@ -40,6 +40,12 @@ public class Main {
                 System.out.println("You Win!");
                 break;
             }
+            
+             if (ticTacIndex [9] == 5){ // 5 turns to end the game
+                System.out.println("Draw!");
+                break;
+            }
+
 
             System.out.println("");
 
@@ -54,12 +60,7 @@ public class Main {
                 System.out.println("CPU Win!");
                 break;
             }
-
-            if (ticTacIndex [9] == 4){
-                System.out.println("Draw!");
-                break;
-            }
-
+            
             for (int i = 0; i < ticTacIndex.length; i++) {
                 System.out.print(ticTacIndex [i] + " : ");
             }
