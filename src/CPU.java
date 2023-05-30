@@ -96,9 +96,12 @@ public class CPU {
                     break;
                 }
                 case 2:{
-                    if (ticTacIndex [4] == 1){
-                        ticTacIndex [6] = 2;
-                        break;
+                    if (ticTacIndex [4] == 1) {
+                        if (ticTacIndex[6] == 0) {
+                            ticTacIndex[6] = 2;
+                            //break;
+                        }
+
                     }
                     else{
                         if (ticTacIndex [0] == 0) {

@@ -28,6 +28,11 @@ public class Main {
 
         System.out.println(players.get(0));
         do{
+            if (ticTacIndex [9] == 5){ // 5 turns to end the game
+                System.out.println("Draw!");
+                break;
+            }
+
             playerMove = playersMove.getPlayerMove(ticTacIndex);
             if (playerMove == -3) { // -3 for EXIT
                 break;
@@ -68,6 +73,9 @@ public class Main {
          }
         while (win);
 
+        System.out.println("");
+        playersMove.drawTicTacHowToPlay(ticTacIndex,ticTacTable);
+        System.out.println("");
         System.out.println("The End!!!");
     }
 
