@@ -66,9 +66,9 @@ public class Main {
                 break;
             }
             
-            for (int i = 0; i < ticTacIndex.length; i++) {
+            /*for (int i = 0; i < ticTacIndex.length; i++) {
                 System.out.print(ticTacIndex [i] + " : ");
-            }
+            }*/
 
          }
         while (win);
